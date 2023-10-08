@@ -1,10 +1,29 @@
 <template>
-	<form @submit.prevent="updateHandler()">
-		<input type="text" v-model="currentTask.title" />
-		<textarea rows="3" v-model="currentTask.description"></textarea>
-		<button type="submit">Update</button>
-		<button type="button" @click="deleteHandler()">Delete</button>
-	</form>
+	<div class="col-md-4 offset-md-4">
+		<form class="card card-body" @submit.prevent="updateHandler()">
+			<h1 class="text-center">Task detail</h1>
+			<input
+				class="form-control mb-3"
+				type="text"
+				v-model="currentTask.title"
+			/>
+			<textarea
+				class="form-control mb-3"
+				rows="3"
+				v-model="currentTask.description"
+			></textarea>
+			<button
+				:disabled="!currentTask.title || !currentTask.description"
+				class="btn btn-primary mb-3"
+				type="submit"
+			>
+				Update
+			</button>
+			<button class="btn btn-danger" type="button" @click="deleteHandler()">
+				Delete
+			</button>
+		</form>
+	</div>
 </template>
 <script lang="ts">
 	import { defineComponent } from 'vue';
