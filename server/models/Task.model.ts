@@ -7,6 +7,7 @@ const taskSchema = new Schema(
 			required: true,
 			// Limpia string
 			trim: true,
+			unique: true,
 		},
 		description: {
 			type: String,
