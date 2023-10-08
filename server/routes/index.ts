@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/tasks', async (req, res) => {
 	const tasks = await Task.find();
-	res.send(tasks);
+	res.json(tasks);
 });
 router.post('/tasks', async (req, res) => {
 	const { title, description } = req.body;
